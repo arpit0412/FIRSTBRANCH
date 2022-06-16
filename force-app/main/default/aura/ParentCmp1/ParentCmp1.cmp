@@ -1,0 +1,5 @@
+<aura:component>
+    <aura:handler name="infofeat"  event="c:eventOne" action ="{!callme}" />     
+    <c:childCmp1  />
+	
+</aura:component>

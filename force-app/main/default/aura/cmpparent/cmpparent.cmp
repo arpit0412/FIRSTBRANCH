@@ -1,0 +1,11 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+     <aura:attribute name="messageFromEvent" type="string" />
+    <aura:attribute name="numEvent" type="integer" default="0" />
+    //here we handle the event
+    <aura:handler name="abc" event="c:cmpEvent" action="{!c.handlerFnc}" />
+        //include child component
+    <c:cmpChild />
+    
+    <p>{!v.messageFromEvent}</p>
+    <p>number of events:{!v.numEvents}</p>
+</aura:component>

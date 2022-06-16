@@ -1,0 +1,44 @@
+<aura:component implements="flexipage:availableForAllPageTypes">
+    <aura:attribute 
+        name="modes" 
+        type="List" 
+        default="[
+    {'label': 'Easy', 'value': 'easy'},
+    {'label': 'Medium', 'value': 'medium'},
+    {'label': 'Hard', 'value': 'hard'},
+    ]"
+    />    
+
+    <aura:attribute name="selectedMode" type="String" />
+     <h1 class="bgclr">Puzzle game</h1> 
+        <lightning:card >
+       
+        <lightning:layout horizontalAlign="center" multipleRows="true">      
+            <lightning:layoutItem padding="around-small">
+        <lightning:combobox 
+            name="gameMode" 
+            label="Game Mode" 
+            value="inProgress" 
+            aura:id="gameMode"
+            variant="label-hidden"
+            options="{!v.modes}" 
+            placeholder="Select Game Mode" 
+        /> 
+
+    </lightning:layoutItem> 
+    <lightning:layoutItem padding="around-small">
+        <lightning:button variant="brand" label="Start New Game" title="Start New Game" onclick="{!c.startGame}" />
+    </lightning:layoutItem>
+        <lightning:layoutItem padding="around-small">
+           <lightning:button label="Reshuffle" title="Reshuffle" onclick="{!c.reshuffleBoard}"/>
+    </lightning:layoutItem>
+
+    <aura:if isTrue="{! (v.selectedMode != null)}">
+        <lightning:layoutItem size="12">
+             <!--<c:Board mode="{!v.selectedMode}"></c:Board> -->
+        </lightning:layoutItem>
+    </aura:if>
+      </lightning:layout>  
+    </lightning:card>
+
+</aura:component>

@@ -1,0 +1,49 @@
+<template>
+
+    <template if:false={showCard}>
+        <lightning-card title="Configuration Records">
+            <div style="height: 200px">
+                <lightning-datatable 
+                                     key-field="id"
+                                     data={recordData}
+                                     columns={columns}>
+            </lightning-datatable>
+            </div>
+        
+            <div>
+                <lightning-button class="BUTTON-Text whiteh4boldcentre slds-align_absolute-center" variant="success" label="Next" onclick={openCardHandle}></lightning-button>
+            </div>
+        </lightning-card>
+        </template>
+        <template if:true={showCard}>
+        
+        <lightning-card  title="Fetch Fields">
+            <div>
+                <lightning-combobox
+                    name="progress"
+                    label="Status"
+                    value={value}
+                    placeholder="Select Progress"
+                    options={options}
+                    onchange={handleChange} ></lightning-combobox>
+        
+            <p>Selected value is: {value}</p>
+            </div>
+        <div>
+        <lightning-dual-listbox name="Fields" class="slds-m-around_small" label="Select Fields"
+          source-label="Available" selected-label="Selected" field-level-help="Select your preferred Fields"
+          options={selectFields} value={fieldsValue} onchange={handleSelectFields}>
+        </lightning-dual-listbox>
+        </div>
+        
+        <div class="Background-color-p">
+            <span class="BUTTON-Text whiteh4boldcentre slds-align_absolute-center">
+                <lightning-button variant="brand" label="Save" onclick={handleSave} ></lightning-button>  <!-- class="slds-var-m-right_medium" -->
+            </span>
+            </div>
+        
+        </lightning-card>
+        </template>
+    
+    
+    </template>

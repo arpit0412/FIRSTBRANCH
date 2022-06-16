@@ -1,0 +1,201 @@
+<template>
+        <lightning-tabset variant="vertical">
+    
+     <!-- Basic Details-->
+            <lightning-tab label="Basic Details">
+                <lightning-input label="First Name" value={fname} type="text" onchange={basicHandler} ></lightning-input>
+                <lightning-input label="Last Name" value={lname} type="text" onchange={basicHandler} ></lightning-input>
+                <lightning-input label="Email" value={email} type="email" onchange={basicHandler}  ></lightning-input>
+                
+                  <footer class="slds-modal__footer">
+                   
+                    <lightning-button label="Save" onclick={onSave}></lightning-button>
+    
+                    
+                </footer>
+            </lightning-tab>
+              <!-- Personal Details -->
+    
+              <lightning-tab label="Personal Details"> 
+                <lightning-input type="text"  label="Address" 
+                value= {address} onchange={handleAddress}></lightning-input>
+                
+                <lightning-input type="number" label="Phone"  value= {phone} onchange={handlePhone}></lightning-input>
+                
+                <template if:true={Country_cPicklist.data}>
+                    <lightning-combobox name="progress" label="Country" value={country} placeholder="Select Country"
+                        options={Country_cPicklist.data.values} onchange={handleCountry}>
+                    </lightning-combobox>
+                </template>
+               
+                <template if:true={STATEpicklist.data}>
+                    <lightning-combobox name="progress" label="State" value={state} placeholder="Select State"
+                        options={STATEpicklist.data.values} onchange={handleState}>
+                    </lightning-combobox>
+                </template>
+    
+                <template if:true={City_cpicklist.data}>
+                    <lightning-combobox name="progress" label="City" value={city} placeholder="Select City"
+                        options={City_cpicklist.data.values} onchange={handleCity}>
+                    </lightning-combobox>
+                </template> 
+    
+                <lightning-input type="Date" label="DOB" 
+                value= {DOB} onchange={handleDOB}></lightning-input>
+    
+                <lightning-input type="text"  label="Place of Birth"
+                value= {placeOfBirth} onchange={handlePlaceOfBirth}></lightning-input>
+    
+                <lightning-input type="number"  label="postal code" name="postal code"
+               value= {postalcode} onchange={handlePostalCode}></lightning-input>
+              
+               <!-- upload file -->
+               <lightning-file-upload
+               label="Attach receipt"
+               name="fileUploader"
+               accept={acceptedFormats}
+               record-id={myRecordId}
+               onuploadfinished={handleUploadFinished}>
+           </lightning-file-upload>
+           <footer class="slds-modal__footer">
+                   
+            <lightning-button label="Save" onclick={onSave}></lightning-button>
+    
+            
+        </footer>
+            </lightning-tab>
+           
+    
+          
+              <!-- Professtional Details -->
+             <lightning-tab label="Professtional Details">
+    
+                <lightning-input label="Job Title" value={jobTitle} onchange={profDetailHandler} type="text"></lightning-input>
+                                
+                <lightning-input label="Comapny Name" value={companyName} onchange={profDetailHandler} type="text"></lightning-input>
+                <lightning-input label="Job Start Date" value={jStartDate} onchange={profDetailHandler} type="Date" onkeyup={handleKeyUp} ></lightning-input>
+                    
+                <lightning-input label="Job End Date" value={jEndDate} onchange={profDetailHandler} type="Date"></lightning-input>
+                <lightning-input label="City" value={jobCity} onchange={profDetailHandler} type="text"></lightning-input><br/>
+    
+                <div class="slds-float_right slds-p-bottom_small">
+                <lightning-helptext icon-name="utility:share_post" content="2 years of experience as a Administration and Developer 
+                in Salesforce.com. Has good knowledge of the Technical and Functional aspects of Salesforce.com,
+                 on demand CRM package and Hands on experience on developing Triggers, Apex Classes and VF Pages"></lightning-helptext>
+                
+    
+                <lightning-helptext icon-name="utility:share_post" content="Experienced Salesforce administrator and developer with 3+ years’ experience. Proficient in programming,
+                 experienced in upgrading, modifying systems,
+                 and skilled in analyzing company processes and developing 
+                workflows for business needs. Adept at developing, designing, and testing applications and modules."></lightning-helptext>
+            </div>
+    
+                <lightning-input-rich-text label="Professional Summary" value={profSumm} onchange={profDetailHandler} placeholder="Professional Summary"></lightning-input-rich-text>
+            
+            
+                <footer class="slds-modal__footer">
+                   
+                    <lightning-button label="Save" onclick={onSave}></lightning-button>
+    
+                    
+                </footer>
+            </lightning-tab>
+    
+             <!-- skills  -->
+             <lightning-tab label="skills Details">
+                <template for:each={itemList} for:item="item" for:index="index">
+                    <lightning-record-edit-form key={item.id} object-api-name="Resume__c">
+                        <lightning-messages> </lightning-messages>
+                        <lightning-layout multiple-rows>
+            
+                            <lightning-layout-item size="12" small-device-size="6" medium-device-size="4" large-device-size="2"
+                                padding="around-small">
+                                <lightning-input-field field-name="certificate__c"  variant="label-stacked" >
+                                </lightning-input-field>
+                            </lightning-layout-item>
+                      
+                        </br>
+                    </br>
+                            <lightning-icon icon-name="action:new" access-key={item.id} id={index}
+                                alternative-text="Add Row" size="small" title="Add Row" onclick={addRow}>
+                            </lightning-icon>
+    
+                            &nbsp; &nbsp;
+                            <lightning-icon icon-name="action:delete" access-key={item.id} id={index}
+                                alternative-text="Delete Row" size="small" title="Delete Row" onclick={removeRow}>
+                            </lightning-icon>
+                        </lightning-layout>
+                    </lightning-record-edit-form>
+                </template>
+            </lightning-tab>
+    
+    
+             
+                    <!-- Project Details -->
+             <lightning-tab label="Project Details">
+                <lightning-input label="Project Name" type="text" value={projectName} onchange={handleProjectName}></lightning-input>
+                <lightning-input label="Project Duration" type="text" value={projectDuration} onchange={handleProjectDuration}></lightning-input>
+                <lightning-input label="Role and Responsility" type="text" value={projectRole} onchange={handleProjectRole}></lightning-input><br/>
+                <lightning-input-rich-text placeholder="Project Description" value={projectDescription} onchange={handleProjectDescription}></lightning-input-rich-text>
+               
+                <footer class="slds-modal__footer">
+                   
+                    <lightning-button label="Save" onclick={onSave}></lightning-button>
+    
+                    
+                </footer>
+            </lightning-tab>
+    
+    
+           
+    
+              <!-- Education Detail Template -->
+              <lightning-tab label=" Education Detail Template">
+    
+                <lightning-tabset  variant="vertical">
+                    <!-- tabs for 10th -->
+                    <lightning-tab label="10th">
+                        <!-- <template if:true={SCHOOL_COLLEGEpicklist.data}>
+                            <lightning-combobox name="progress" label="School/College" value={schCollege} placeholder="Select School/College "
+                                options={SCHOOL_COLLEGEpicklist.data.values} onchange={eduDetailHandler}></lightning-combobox>
+                        </template> -->
+                       
+                        <lightning-input  value={schName} label="School Name" onchange={eduDetailHandler} type="text" ></lightning-input>
+                         <lightning-input  value={passing10} label="Passing Year" onchange={eduDetailHandler} type="number" ></lightning-input>
+                       
+                        <lightning-input value={eduCity} label="Education City" onchange={eduDetailHandler} type="text"></lightning-input>
+                        <lightning-input value ={percent10}  label ="Percent in 10th"  type="percent" onchange={eduDetailHandler}></lightning-input>
+        
+                        
+                    </lightning-tab>
+    
+                  <!--   tabs for 12th -->
+                    <lightning-tab label="12th">
+                        <lightning-input  value={schCollegeName} label="School Name/College Name" onchange={eduDetailHandler} type="text" ></lightning-input>
+                        <lightning-input value ={percent12}  label ="Percent in 12th"  type="percent" onchange={eduDetailHandler}></lightning-input>
+                        <lightning-input  value={passing12} label="12th Passing Year" onchange={eduDetailHandler} type="number" ></lightning-input>
+        
+                    </lightning-tab>
+    
+                    <!-- tabs for UG -->
+                    <lightning-tab label="UG">
+                        <lightning-input  value={schColleg} label="College Name" onchange={eduDetailHandler} type="text" ></lightning-input>
+                        <lightning-input value ={percentUG}  label ="Percent in UG"  type="percent" onchange={eduDetailHandler}></lightning-input>
+                        <lightning-input  value={passingUG} label="UG Passing Year" onchange={eduDetailHandler} type="number" ></lightning-input>
+                       
+                    </lightning-tab>
+    
+                </lightning-tabset>
+    
+                <footer class="slds-modal__footer">
+                   
+                    <lightning-button label="Save" onclick={onSave}></lightning-button>
+    
+                    
+                </footer>
+              </lightning-tab>
+           
+    
+        </lightning-tabset>
+   
+</template>

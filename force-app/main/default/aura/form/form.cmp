@@ -1,0 +1,24 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    
+            <aura:attribute name="Num1" type="Integer" access="public"  />
+            <aura:attribute name="Num2" type="Integer"  access="public" />
+            <aura:attribute name="result" type="Integer" access="public" />
+
+    <div  style="text-align:center"  >
+        <lightning:input  label="Enter 1 " placeholder="Enter Number1" value="{!v.Num1}"  /><br />
+        
+        <lightning:input  label="Enter 2 " placeholder="Enter Number2" value="{!v.Num2}"   /><br />
+        
+       
+            
+        <lightning:button  label="add" oncLick="{!c.Add}"/>
+        <lightning:button  label="sub" oncLick="{!c.Sub}"/>
+        <lightning:button  label="mult" oncLick="{!c.Mult}"/>
+        <lightning:button  label="div" oncLick="{!c.Div}"/>
+        <br/>
+       
+      <span>result:{!v.result}</span>
+     
+    </div>
+	
+</aura:component>

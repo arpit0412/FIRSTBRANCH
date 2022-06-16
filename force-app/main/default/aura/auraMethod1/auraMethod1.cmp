@@ -1,0 +1,3 @@
+<aura:component controller= "ApexConnect"     implements="flexipage:availableForAllPageTypes" access="global" >
+	
+</aura:component>

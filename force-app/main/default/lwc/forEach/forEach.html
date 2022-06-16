@@ -1,0 +1,21 @@
+<template>
+    <lightning-card title="ForEach">
+        <div class="slds-m-around_medium">
+
+            <template if:true={accounts.data}>
+              
+                  <template for:each={accounts} for:item="acc">
+                    <p key = {acc.Id}> {acc.Name}</p>
+                 </template>
+
+             </template>
+
+                 <template if:true={accounts.error}>
+                            {accounts.error}
+
+                 </template>
+
+        </div>
+    </lightning-card>
+    
+</template>

@@ -1,0 +1,70 @@
+<template>
+    <lightning-button name="openModal" label="Assign" onclick={openModal} variant="brand" class="slds-var-m-around_small"></lightning-button>
+    <template if:true={showModal}>
+        <section aria-modal="true" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container ">
+                <header class="slds-modal__header">
+                    <h2 class="slds-text-heading_small">Search Agent</h2>
+                    <lightning-icon class="slds-modal__close" icon-name="utility:close" size="small" onclick={closeModal}></lightning-icon>
+                </header>
+                <div class="slds-modal__content">
+                    <div class="slds-var-p-around_small">
+          <div class="slds-var-m-around_medium">
+                       
+                       <div class="slds-var-m-bottom_small">
+                           <lightning-input type="text"
+                              value={searchValue}
+                              label="Agent Name"
+                              onchange={searchKeyword}
+                              ></lightning-input>
+                        </div>
+                        
+                     
+                           
+                       
+                        <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-var-m-top_small">
+                           <thead>
+                              <tr class="slds-line-height_reset">
+                                 
+                                  <th class="" scope="col">
+                                    <div class="slds-truncate" title="Name">Name</div>
+                                 </th>
+                                 <th class="" scope="col">
+                                  <div class="slds-truncate" title="Role">User Role</div>
+                               </th>
+                               <th class="" scope="col">
+                                  <div class="slds-truncate" title="Profile">Profile</div>
+                               </th>
+                             </tr>
+                           </thead>
+                           
+                           <tbody>   
+                            <template for:each={usersRecord} for:item="usr">
+                               <tr class="slds-hint-parent" key={usr.Id}>
+                                 
+                                  <td>
+                                     <div class="slds-truncate">{usr.Name}</div>
+                                  </td>
+                                  <td>
+                                   <div class="slds-truncate">{usr.UserRole.Name}</div>
+                                </td>
+                                <td>
+                                   <div class="slds-truncate">{usr.User.Profile.Name}</div>
+                                </td>                                
+                                 </tr>
+                              </template>
+                           </tbody>
+                        </table>
+                     </div>          
+          </div>
+                </div>
+                <footer class="slds-modal__footer">
+                                       <lightning-button variant="brand" label="Assign" onclick={closeModal} ></lightning-button>
+ 
+                   <lightning-button variant="brand" label="Cancel" onclick={closeModal} class="slds-var-p-around_x-small"></lightning-button>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+    </template>

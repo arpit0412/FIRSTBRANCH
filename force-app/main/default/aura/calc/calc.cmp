@@ -1,0 +1,21 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+	 <aura:attribute name="aval" type="integer"/>
+    <aura:attribute name="bval" type="integer" />
+    <aura:attribute name="result" type="integer"/>
+    
+    <div class="box">
+    <lightning:input label='First Num' value='{!v.aval}'/>
+    <lightning:input label='Second Num' value='{!v.bval}'/>
+    <lightning:input label='Result Num' value='{!v.result}'/>
+    
+    <br/>
+    <lightning:buttongroup>
+        <lightning:button label="Add" onclick="{!c.addFunction}"/>
+        <lightning:button label="Sub" onclick="{!c.subFunction}"/>
+        <lightning:button label="Mul" onclick="{!c.mulFunction}"/>
+        <lightning:button label="Div" onclick="{!c.divFunction}"/>
+    </lightning:buttongroup>
+        </div>
+    
+    
+</aura:component>

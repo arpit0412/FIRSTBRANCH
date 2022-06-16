@@ -1,0 +1,21 @@
+<aura:component >
+	<section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+<div class="slds-modal__container" style="    width: 32%;
+    height: 80%;">
+<header class="slds-modal__header">
+
+<h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">Portal</h2>
+</header>
+<div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+    <lightning:input label="First Name" type="text" placeholder="enter first name" required="true" />
+     <lightning:input label="Last Name" type="text" placeholder="enter Last name" required="true" />
+</div>
+<footer class="slds-modal__footer slds-modal__footer_directional">
+
+<a class="slds-button slds-button_destructive" href="#">Search</a>
+</footer>
+</div>
+</section>
+<div class="slds-backdrop slds-backdrop_open"></div>
+    
+</aura:component>

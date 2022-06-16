@@ -1,0 +1,8 @@
+<template>
+    <label>Select the fields you want to display in the Data Table</label>
+    <select class="slds-select" name="optionSelect">
+        <template for:each={wiredContactFields.data} for:item="field">
+            <option key={field} value={field}>{field}</option>
+        </template>
+    </select>
+</template>
