@@ -6,42 +6,41 @@ import { getObjectInfo } from 'lightning/uiObjectInfoApi';
 //confirm msg
 import LightningConfirm from 'lightning/confirm';
 //picklist field
-// import Resume_Object from '@salesforce/schema/Resume__c';
-// import Country_c from '@salesforce/schema/Resume__c.Country__c';
-// import STATE from '@salesforce/schema/Resume__c.State__c';
-// import City_c from '@salesforce/schema/Resume__c.City__c';
+ import Resume_Object from '@salesforce/schema/presume__c';
+ import Country_c from '@salesforce/schema/presume__c.Country__c';
+ import STATE from '@salesforce/schema/presume__c.State__c';
+ import City_c from '@salesforce/schema/presume__c.City__c';
+ import NAME from '@salesforce/schema/presume__c.Name';
+ import LAST_NAME from '@salesforce/schema/presume__c.LastName__c';
+ import EMAIL from '@salesforce/schema/presume__c.Email__c';
+ import ADDRESS from '@salesforce/schema/presume__c.Address__c';
+ import PHONE from '@salesforce/schema/presume__c.Phone__c';
+ import DOB from '@salesforce/schema/presume__c.DOB__c';
+// import PLACE_OF_BIRTH from '@salesforce/schema/presume__c.PlaceOfBirth__c';
+// import POSTAL_CODE from '@salesforce/schema/presume__c.PostalCode__c';
+// import JOB_TITLE from '@salesforce/schema/presume__c.Job_Title__c';
+// import COMPANY_NAME from '@salesforce/schema/presume__c.Comapny_Name__c';
+// import JOB_START_DATE from '@salesforce/schema/presume__c.Job_Start_Date__c';
+// import JOB_END_DATE from '@salesforce/schema/presume__c.Job_End_Date__c';
+// import PROF_CITY from '@salesforce/schema/presume__c.Prof_City__c';
+// import PROF_SUMMARY from '@salesforce/schema/presume__c.Profesional_Summary__c';
+// import PROJECT_NAME_c from '@salesforce/schema/presume__c.Project_Name__c';
+// import PROJECT_DURATION_c from '@salesforce/schema/presume__c.Project_Duration__c';
+// import ROLES_c from '@salesforce/schema/presume__c.Roles_And_Responsibilities__c';
+// import PROJECT_DESC_c from '@salesforce/schema/presume__c.Project_Description__c';
+// import SCHOOL_COLLEGE from '@salesforce/schema/presume__c.School_and_College__c';
+// import SCHOOL_COLLEGE_NAME from '@salesforce/schema/presume__c.School_Collage_Name__c';
+// import START_DATE from '@salesforce/schema/presume__c.Start_Date__c';
+// import END_DATE from '@salesforce/schema/presume__c.End_Date__c';
+// import EDUCATION_CITY from '@salesforce/schema/presume__c.EduOfCity__c';
+// import certificate from '@salesforce/schema/presume__c.certificate__c';
 
-// import NAME from '@salesforce/schema/Resume__c.Name';
-// import LAST_NAME from '@salesforce/schema/Resume__c.Last_Name__c';
-// import EMAIL from '@salesforce/schema/Resume__c.Email__c';
-// import ADDRESS from '@salesforce/schema/Resume__c.Address__c';
-// import PHONE from '@salesforce/schema/Resume__c.Phone__c';
-// import DOB from '@salesforce/schema/Resume__c.DOB__c';
-// import PLACE_OF_BIRTH from '@salesforce/schema/Resume__c.PlaceOfBirth__c';
-// import POSTAL_CODE from '@salesforce/schema/Resume__c.PostalCode__c';
-// import JOB_TITLE from '@salesforce/schema/Resume__c.Job_Title__c';
-// import COMPANY_NAME from '@salesforce/schema/Resume__c.Comapny_Name__c';
-// import JOB_START_DATE from '@salesforce/schema/Resume__c.Job_Start_Date__c';
-// import JOB_END_DATE from '@salesforce/schema/Resume__c.Job_End_Date__c';
-// import PROF_CITY from '@salesforce/schema/Resume__c.Prof_City__c';
-// import PROF_SUMMARY from '@salesforce/schema/Resume__c.Profesional_Summary__c';
-// import PROJECT_NAME_c from '@salesforce/schema/Resume__c.Project_Name__c';
-// import PROJECT_DURATION_c from '@salesforce/schema/Resume__c.Project_Duration__c';
-// import ROLES_c from '@salesforce/schema/Resume__c.Roles_And_Responsibilities__c';
-// import PROJECT_DESC_c from '@salesforce/schema/Resume__c.Project_Description__c';
-// import SCHOOL_COLLEGE from '@salesforce/schema/Resume__c.School_and_College__c';
-// import SCHOOL_COLLEGE_NAME from '@salesforce/schema/Resume__c.School_Collage_Name__c';
-// import START_DATE from '@salesforce/schema/Resume__c.Start_Date__c';
-// import END_DATE from '@salesforce/schema/Resume__c.End_Date__c';
-// import EDUCATION_CITY from '@salesforce/schema/Resume__c.EduOfCity__c';
-// import certificate from '@salesforce/schema/Resume__c.certificate__c';
 
-
-export default class Tabexample extends LightningElement {
+export default class Presume extends LightningElement {
     //Bacis Details
     fname='';
      lname='';
-    email='';
+        email='';
 
      basicHandler(event)
      {

@@ -1,0 +1,23 @@
+<template> 
+    <lightning-card  >
+        <lightning-layout>
+            <lightning-layout-item padding="around-small" size="12" medium-size-device="6" large-device-size="6" >
+                <lightning-input  class="validation"  label="FirstName" type="text" required></lightning-input>
+        <lightning-input  class="validation"  label="LastName" type="text" required></lightning-input>
+        <lightning-input  class="validation"  label="Address" type="text" required></lightning-input>
+        <lightning-input  class="validation"  label="Email" type="email" required></lightning-input>
+        <lightning-input  class="validation"  label="Password" type="password" required></lightning-input>
+          </lightning-layout-item>
+        <lightning-layout-item padding="around-small" size="12" medium-device-size="6" large-device-size="6">
+                  <lightning-input  class="validation"  label="Pincode" type="number" required></lightning-input>
+        <lightning-combobox  class="validation"  label="country" options={CountryOptions} required></lightning-combobox>
+            <lightning-input  class="validation"  label="City" type="text" required></lightning-input>
+            <lightning-input  class="validation"  label="State" type="text" required></lightning-input>
+        </lightning-layout-item>
+        <lightning-layout-item padding="around-small" size="12" medium-size-device="6" large-device-size="6">
+            <lightning-button label="Save" variant="brand" onclick={SaveBtnClick}></lightning-button>>
+        </lightning-layout-item>
+     </lightning-layout>
+</lightning-card>
+    
+</template>
